@@ -16,7 +16,9 @@ function App() {
         <NavBar />
       </div>
       <HeroSection />
-      <FeaturedPosts />
+      <div className="flex justify-center">
+        <FeaturedPosts />
+      </div>
       <BlogCardGrid />
     </ThemeProvider>
   );

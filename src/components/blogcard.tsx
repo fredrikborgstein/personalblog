@@ -25,7 +25,7 @@ export default function BlogCard({
   return (
     <div
       style={{ maxWidth: "450px" }}
-      className="border-solid border-2 border-black p-4 rounded-md shadow-2xl bg-white dark:bg-gray-800 dark:border-gray-700 dark:text-gray-100 transition-all"
+      className=" border-solid border-2 border-black p-4 rounded-md shadow-2xl bg-white dark:bg-gray-800 dark:border-gray-700 dark:text-gray-100 transition-all"
     >
       <Card>
         <CardHeader>
@@ -44,7 +44,11 @@ export default function BlogCard({
               className="w-full h-full object-cover rounded-md shadow-md"
             />
           </div>
-          <p>{description}</p>
+          <p>
+            {description.length <= 123
+              ? description
+              : description.slice(0, 124)}
+          </p>
         </CardContent>
         <CardFooter
           style={{

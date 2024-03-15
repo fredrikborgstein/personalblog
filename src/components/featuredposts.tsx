@@ -6,9 +6,13 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
-import { Button } from "@/components/ui/button";
+import BlogCard from "./blogcard";
+import useScreenSize from "./useScreenSize";
+import { Separator } from "@/components/ui/separator";
 
 export default function FeaturedPosts() {
+  const screenSize = useScreenSize();
+  const isMobile = screenSize <= 400;
   const blogPosts = [
     {
       title: "Top 5 CSS Tips",
@@ -52,58 +56,54 @@ export default function FeaturedPosts() {
     },
   ];
 
+  const blogCardStyles: React.CSSProperties = {
+    maxWidth: isMobile ? "320px" : "800px",
+    minWidth: isMobile ? "320px" : "350px",
+    maxHeight: "600px",
+    minHeight: "350px",
+    padding: "16px",
+    borderRadius: "8px",
+    boxShadow: "0 0 10px 0 rgba(0,0,0,0.2)",
+    backgroundColor: "white",
+    transition: "all 0.3s",
+  };
+
   return (
     <div
-      id="featured-section"
-      className="lg:mx-96 flex align-middle items-center justify-center flex-col bg-gray-100 dark:bg-gray-800 transition-all p-10 rounded-md shadow-2xl mt-10"
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        flexDirection: "column",
+        alignItems: "center",
+        width: "100%",
+      }}
     >
-      <div id="featured-title" className="text-3xl font-bold">
-        Featured Blog Posts
+      <div>
+        <h2 className="text-3xl font-bold my-7">Featured Blog Posts</h2>
       </div>
-      <div
-        id="featured-carousel"
-        className="flex justify-center w-3/12 lg:w-6/12 mx-auto mt-5 mb-5"
-      >
-        <Carousel className="flex justify-center">
-          <CarouselPrevious />
+      <Separator className="my-4" style={{ maxWidth: "1650px" }} />
+      <div style={blogCardStyles}>
+        <Carousel
+          style={{ width: "100%", height: "100%" }}
+          opts={{
+            align: "start",
+            loop: true,
+          }}
+        >
+          <CarouselPrevious>Previous</CarouselPrevious>
           <CarouselContent>
             {blogPosts.map((post, index) => (
-              <CarouselItem key={index}>
-                <div className="flex flex-col justify-center align-middle text-center border-solid border-2 border-black p-4 rounded-md shadow-2xl bg-white dark:bg-gray-800 dark:border-gray-700 dark:text-gray-100 transition-all">
-                  <div id="blog-card-content">
-                    <div id="blog-card-title" className="text-xl font-bold">
-                      {post.title}
-                    </div>
-                    <div id="blog-card-date" className="text-sm mb-5">
-                      Published on {post.date}
-                    </div>
-                    <div
-                      id="image-container"
-                      className="flex items-center justify-center mb-5 pb-5 w-full h-64 overflow-hidden rounded-md shadow-md bg-gray-100 dark:bg-gray-700 transition-all"
-                    >
-                      <div className="lg:max-w-full lg:max-h-full">
-                        <img
-                          src={post.image}
-                          alt="blog post image"
-                          className="object-cover rounded-md shadow-md"
-                          style={{
-                            maxWidth: "100%",
-                            maxHeight: "100%",
-                            width: "100%",
-                          }}
-                        />
-                      </div>
-                    </div>
-                    <div id="blog-card-description" className="text-sm">
-                      {post.description}
-                    </div>
-                  </div>
-                  <Button className="mt-10">Read More</Button>
-                </div>
+              <CarouselItem key={index} className="lg:basis-1/2">
+                <BlogCard
+                  title={post.title}
+                  date={post.date}
+                  description={post.description}
+                  image={post.image}
+                />
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselNext />
+          <CarouselNext>Next</CarouselNext>
         </Carousel>
       </div>
     </div>
