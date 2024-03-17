@@ -5,7 +5,6 @@ import HeroSection from "./components/HeroSection";
 // import BlogPostSection from "./components/BlogPostSection";
 import BlogCardGrid from "./components/blogcardgrid";
 import FeaturedPosts from "./components/featuredposts";
-
 import "./App.css";
 import Footer from "./components/Footer";
 
