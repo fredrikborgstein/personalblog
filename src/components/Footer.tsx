@@ -6,7 +6,7 @@ import {
 
 function Footer() {
   return (
-    <div className="flex flex-col justify-center items-center my-10 bg-stone-700 lg:h-64 bottom-0 left-0 w-full">
+    <div className="flex flex-col justify-center items-center mt-10 bg-stone-700 lg:h-64 bottom-0 left-0 w-full">
       <div id="footer-text" className="text-xl text-white my-4 text-center">
         Feel free to reach out:
       </div>

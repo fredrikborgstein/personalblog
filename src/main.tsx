@@ -8,6 +8,7 @@ import Contact from "./components/Contact.tsx";
 import About from "./components/About.tsx";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const router = createBrowserRouter([
   { path: "/", element: <App /> },
@@ -18,8 +19,10 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <NavBar />
-    <RouterProvider router={router} />
-    <Footer />
+    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+      <NavBar />
+      <RouterProvider router={router} />
+      <Footer />
+    </ThemeProvider>
   </React.StrictMode>
 );

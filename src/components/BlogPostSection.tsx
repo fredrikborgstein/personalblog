@@ -48,7 +48,7 @@ function BlogPostSection() {
   return (
     <div className="mt-24 2xl:mx-96 md:mx-60 sm:mx-40 mx-3 flex flex-col justify-center">
       <div id="blog-section-title" className="text-center my-8">
-        <h1 className="text-2xl font-bold">Blog Posts</h1>
+        <h1 className="text-2xl 2xl:text-3xl font-bold">Blog Posts</h1>
       </div>
       <div id="blog-section-seperator">
         {" "}
