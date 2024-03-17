@@ -7,7 +7,10 @@ import {
 
 function Contact() {
   return (
-    <div className="mt-24 2xl:mx-96 md:mx-60 sm:mx-40 mx-3 flex flex-col justify-center text-center">
+    <div
+      className="mt-32 2xl:mx-96 md:mx-60 sm:mx-40 mx-3 flex flex-col justify-center text-center"
+      style={{ height: "80vh" }}
+    >
       <div id="contact-section-title" className="my-24">
         <h1 className="text-2xl 2xl:text-3xl font-bold">Contact</h1>
       </div>
@@ -17,7 +20,7 @@ function Contact() {
         </div>
         <div id="social-buttons-contact-section" className="text-center">
           <h2>Or reach out to me on Social Media</h2>
-          <div className="flex mt-6 justify-evenly">
+          <div className="flex mt-6 justify-evenly pb-32 md:pb-0 lg:pb-0 2xl:pb-0">
             <a
               href="https://github.com/fredrikborgstein"
               className="mx-3"
