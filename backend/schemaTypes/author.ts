@@ -1,25 +1,19 @@
 import {defineField, defineType} from 'sanity'
 
-export const blogPost = defineType({
-  name: 'blogpost',
-  title: 'Blog Post',
+export const author = defineType({
+  name: 'author',
+  title: 'Author',
   type: 'document',
   fields: [
     defineField({
-      title: 'Title',
-      name: 'title',
+      title: 'Name',
+      name: 'name',
       type: 'string',
     }),
     defineField({
-      title: 'Date Published',
-      name: 'datePublished',
-      type: 'date',
-    }),
-    defineField({
-      title: 'Author',
-      name: 'author',
-      type: 'reference',
-      to: [{type: 'author'}],
+      title: 'Email',
+      name: 'email',
+      type: 'email',
     }),
     defineField({
       title: 'Image',
@@ -31,12 +25,12 @@ export const blogPost = defineType({
       name: 'slug',
       type: 'slug',
       options: {
-        source: 'title',
+        source: 'name',
       },
     }),
     defineField({
-      title: 'Content',
-      name: 'content',
+      title: 'Bio',
+      name: 'bio',
       type: 'array',
       of: [{type: 'block'}],
     }),
